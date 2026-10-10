@@ -1,7 +1,7 @@
 CC = gcc
 
 CFLAGS = -Wall -Wextra -g -Iinclude
-
+ 
 SRC = src/main.c \
       src/login.c \
       src/attendance.c \
@@ -10,7 +10,8 @@ SRC = src/main.c \
       src/events.c \
       src/map.c \
       src/feedback.c \
-      src/campus_pipe.c
+      src/campus_pipe.c \
+      src/campus_redirect.c 
 
 TARGET = bin/smartcampus
 

@@ -1,7 +1,8 @@
+
 #include <stdio.h>
 #include "campus.h"
 
-int main()
+int main(void)
 {
     int choice;
 
@@ -21,10 +22,16 @@ int main()
         printf("5. Campus Map\n");
         printf("6. Feedback\n");
         printf("7. Campus IPC / Pipes\n");
-        printf("8. Exit\n");
+        printf("8. File Redirection Demo (Week 9)\n");
+        printf("9. Exit\n");
 
         printf("\nEnter your choice: ");
-        scanf("%d", &choice);
+
+        if (scanf("%d", &choice) != 1)
+        {
+            printf("Invalid input. Exiting.\n");
+            return 1;
+        }
 
         switch (choice)
         {
@@ -57,13 +64,19 @@ int main()
                 break;
 
             case 8:
+                campus_redirect_demo();
+                break;
+
+            case 9:
                 printf("\nThank you for using Smart Campus!\n");
                 return 0;
 
             default:
-                printf("\nInvalid choice!\n");
+                printf("\nInvalid choice! Try again.\n");
+                break;
         }
     }
 
     return 0;
 }
+
