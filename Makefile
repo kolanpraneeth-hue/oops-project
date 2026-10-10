@@ -1,7 +1,9 @@
+
 CC = gcc
 
 CFLAGS = -Wall -Wextra -g -Iinclude
- 
+LDFLAGS = -pthread
+
 SRC = src/main.c \
       src/login.c \
       src/attendance.c \
@@ -11,22 +13,26 @@ SRC = src/main.c \
       src/map.c \
       src/feedback.c \
       src/campus_pipe.c \
-      src/campus_redirect.c 
+      src/campus_redirect.c \
+      src/campus_thread.c
 
 TARGET = bin/smartcampus
 
 all: $(TARGET)
 
-$(TARGET):
+$(TARGET): $(SRC)
 	mkdir -p bin
-	$(CC) $(CFLAGS) $(SRC) -o $(TARGET)
+	$(CC) $(CFLAGS) $(SRC) $(LDFLAGS) -o $(TARGET)
 
-run:
+run: $(TARGET)
 	./$(TARGET)
 
 asan:
 	mkdir -p bin
-	$(CC) $(CFLAGS) -fsanitize=address $(SRC) -o $(TARGET)
+	$(CC) $(CFLAGS) -fsanitize=address $(SRC) $(LDFLAGS) -o $(TARGET)
 
 clean:
-	rm -rf bin/*
+	rm -f $(TARGET)
+
+.PHONY: all run asan clean
+

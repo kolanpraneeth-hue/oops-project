@@ -14,6 +14,7 @@ void campus_map(void);
 void feedback(void);
 void campus_pipe_demo(void);
 void campus_redirect_demo(void);
+void campus_thread_demo(void);
 
 #endif
 

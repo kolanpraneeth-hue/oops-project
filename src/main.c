@@ -23,13 +23,14 @@ int main(void)
         printf("6. Feedback\n");
         printf("7. Campus IPC / Pipes\n");
         printf("8. File Redirection Demo (Week 9)\n");
-        printf("9. Exit\n");
+        printf("9. Threads and Concurrency (Week 10)\n");
+        printf("10. Exit\n");
 
         printf("\nEnter your choice: ");
 
         if (scanf("%d", &choice) != 1)
         {
-            printf("Invalid input. Exiting.\n");
+            printf("\nInvalid input. Exiting Smart Campus.\n");
             return 1;
         }
 
@@ -68,11 +69,15 @@ int main(void)
                 break;
 
             case 9:
+                campus_thread_demo();
+                break;
+
+            case 10:
                 printf("\nThank you for using Smart Campus!\n");
                 return 0;
 
             default:
-                printf("\nInvalid choice! Try again.\n");
+                printf("\nInvalid choice! Please select 1-10.\n");
                 break;
         }
     }
